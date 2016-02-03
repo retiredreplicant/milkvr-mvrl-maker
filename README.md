@@ -4,7 +4,7 @@ Script to generate MilkVR ".mvrl" files for a collection of videos on your local
 NOTE: This solution was inspired by, and copies heavily from, a previous solution located at  https://github.com/abnormalend/milkvr-url-maker
 
 ##The Basics
-If you already have a web server running and configured, just put the mvrl_maker tool in the folder with your VR video files and run it. The tool will create a folder named "mvrl" with a mvrl file for each video file found.  Copy the generated mvrl files to the MilkVR folder in the root directory of your mobile device, The videos will then be accessible in the "Sideloaded" category from within MilkVR. See https://milkvr.com/#/content/faq for directions on how to create a MilkVR folder on your device. 
+If you already have a web server running and configured, just put the mvrl-maker tool in the folder with your VR video files and run it. The tool will create a folder named "mvrl" with a mvrl file for each video file found.  Copy the generated mvrl files to the MilkVR folder in the root directory of your mobile device, The videos will then be accessible in the "Sideloaded" category from within MilkVR. See https://milkvr.com/#/content/faq for directions on how to create a MilkVR folder on your device. 
 
 ###Don't already have a webserver?  (assumes you're on windows)
  - Download nginx. (http://nginx.org/en/download.html)
@@ -32,7 +32,7 @@ The `<video_name>.<video_type>.mp4` format is optimal but not required. If you h
     http://<your_computer_name>/VR/another_video_3dph.mp4
     another_video_3dph
 
-Note that the video type line of the generated file will contain more than just the video type string "_3dph", but MilkVR currently still finds the video type information in this case. 
+Note that the video type line of the generated file will contain more than just the required video type string "_3dph", but MilkVR currently still finds the video type information in this case and plays the video correctly. 
 
 ##Runtime arguments
 Both the mvrl-maker.ahk and mvrl-maker.exe versions of the tool have several options built into them. Note that AutoHotKey (https://autohotkey.com/) must be installed on your machine to execute the mvrl-maker.ahk version of the tool. You have to run either version using the command line if you want to use any of the options below.
