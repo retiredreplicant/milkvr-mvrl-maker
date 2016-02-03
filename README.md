@@ -15,7 +15,7 @@ If you already have a web server running and configured, just put the mvrl_maker
  - Run mvrl-maker.
  - Copy the generated mvrl files to the MilkVR folder on your mobile device. 
  - Go back to the main nginx folder and run nginx.exe.  If you have windows firewall turned on, you should get prompted about allowing it.
- - Test it out, run MilkVR and stream your videos from the "Sideloaded" category
+ - Test it out! Run MilkVR and stream your videos from the "Sideloaded" category.
 
 ##File Names
 The video files do need to be named in the same way that MilkVR would expect them if you were copying to your phone's storage. The optimal naming convention for your videos is `<video_name>.<video_type>.mp4` where `<video_type>` is a MilkVR recognized video type string. See https://milkvr.com/#/content/faq for the available options for `<video_type>`.
