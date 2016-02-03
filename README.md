@@ -1,10 +1,8 @@
 # milkvr-mvrl-maker
-Script to generate NilkVR ".mvrl" files for a collection of videos on your local PC, allowing easy access to those videos from within the milkVR application.
+Script to generate MilkVR ".mvrl" files for a collection of videos on your local PC, allowing easy access to those videos from within the MilkVR application.
 
 ##The Basics
-If you already have a web server running and configured, just drop this tool in the folder with your VR video files and run it. The tool will create a folder named "mvrl" with a mvrl file for each video file found.  Copy the generated <video_name>.mvrl files to the MilkVR folder in the root directory of your mobile device, The videos will be accessible in the "Sideloaded" category from within MilkVR. The files do need to be named in the same way that MilkVR would expect them if you were copying to your phone's storage. The optimal naming convention for your videos is <video_name>.<video_type>.mp4 (See https://milkvr.com/#/content/faq for directions to create a MilkVR folder and for the available options for <video_type>.) For example, if you have a video named my_video.3dh.mp4, the tool will create an mvrl file named my_video.3dh.mvrl containing:
-
-    http://<
+If you already have a web server running and configured, just drop this tool in the folder with your VR video files and run it. The tool will create a folder named "mvrl" with a mvrl file for each video file found.  Copy the generated mvrl files to the MilkVR folder in the root directory of your mobile device, The videos will then be accessible in the "Sideloaded" category from within MilkVR. See https://milkvr.com/#/content/faq for directions on how to create a MilkVR folder on your device. 
 
 ###Don't already have a webserver?  (assumes you're on windows)
  - Download nginx. (http://nginx.org/en/download.html)
@@ -16,7 +14,24 @@ If you already have a web server running and configured, just drop this tool in 
  - Copy the generated mvrl files to the MilkVR folder on your mobile device. 
  - Go back to the main nginx folder and run nginx.exe.  If you have windows firewall turned on, you should get prompted about allowing it.
  - Test it out, run MilkVR and stream your videos from the "Sideloaded" category
- 
+
+##File Names
+The files do need to be named in the same way that MilkVR would expect them if you were copying to your phone's storage. The optimal naming convention for your videos is <video_name>.<video_type>.mp4 where <video_type> is a MilkVR recognized video type string. See https://milkvr.com/#/content/faq for the available options for <video_type>.
+
+For example, if you have a video named my_video.3dh.mp4, the tool will create an mvrl file named my_video.3dh.mvrl containing:
+
+    http://<computer_name>/VR/my_video.3dh.mp4
+    3dh
+
+In a mvrl file, the first line is the path to the file to be played, and the second line identifies the video type. 
+    
+The <video_name>.<video_type>.mp4 format is optimal but not required. If you a valid <video_type> string anywhere in the file name, the generated mvrl file should still work. For example, if you have a video named another_video_3dph.mp4 (the video type string is "_3dph"), the tool will create an mvrl file named another_video_3dph.mvrl containing:
+
+    http://<computer_name>/VR/another_video_3dph.mp4
+    another_video_3dph
+
+Note that the video type line of the generated file will contain more than just the video type string "_3dph", but MilkVR currently still finds the video type information in this case. 
+
 ##Runtime arguments
 Both the autohotkey and .exe version have several options built into them.
  -  --urlBase will override the main URL being assigned to the file links.  The default if not specified is http://<computer_name>/VR/ where <computer_name> is the name of your PC. For eample, if your mobile device cannot locate your machine via your <computer_name>, you can use this option to use the ip address of your machine instead with "--urlBase=http://<ip_address>/VR/".
