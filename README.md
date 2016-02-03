@@ -16,7 +16,7 @@ If you already have a web server running and configured, just put the mvrl_maker
  - Test it out, run MilkVR and stream your videos from the "Sideloaded" category
 
 ##File Names
-The files do need to be named in the same way that MilkVR would expect them if you were copying to your phone's storage. The optimal naming convention for your videos is `<video_name>.<video_type>.mp4` where `<video_type>` is a MilkVR recognized video type string. See https://milkvr.com/#/content/faq for the available options for '<video_type>`.
+The video files do need to be named in the same way that MilkVR would expect them if you were copying to your phone's storage. The optimal naming convention for your videos is `<video_name>.<video_type>.mp4` where `<video_type>` is a MilkVR recognized video type string. See https://milkvr.com/#/content/faq for the available options for `<video_type>`.
 
 For example, if you have a video named my_video.3dh.mp4, the tool will create an mvrl file named my_video.3dh.mvrl containing:
 
@@ -25,7 +25,7 @@ For example, if you have a video named my_video.3dh.mp4, the tool will create an
 
 In a mvrl file, the first line is the path to the file to be played, and the second line identifies the video type. 
     
-The video_name.video_type.mp4 format is optimal but not required. If you have a valid video_type string anywhere in the file name, the generated mvrl file should still work. For example, if you have a video named another_video_3dph.mp4 (the video type string is "_3dph"), the tool will create an mvrl file named another_video_3dph.mvrl containing:
+The `<video_name>.<video_type>.mp4` format is optimal but not required. If you have a valid `<video_type>` string anywhere in the file name, the generated mvrl file should still work. For example, if you have a video named another_video_3dph.mp4 (the video type string is "_3dph"), the tool will create an mvrl file named another_video_3dph.mvrl containing:
 
     http://<computer_name>/VR/another_video_3dph.mp4
     another_video_3dph
