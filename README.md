@@ -20,14 +20,14 @@ The video files do need to be named in the same way that MilkVR would expect the
 
 For example, if you have a video named my_video.3dh.mp4, the tool will create an mvrl file named my_video.3dh.mvrl containing:
 
-    http://<computer_name>/VR/my_video.3dh.mp4
+    http://<your_computer_name>/VR/my_video.3dh.mp4
     3dh
 
 In a mvrl file, the first line is the path to the file to be played, and the second line identifies the video type. 
     
 The `<video_name>.<video_type>.mp4` format is optimal but not required. If you have a valid `<video_type>` string anywhere in the file name, the generated mvrl file should still work. For example, if you have a video named another_video_3dph.mp4 (the video type string is "_3dph"), the tool will create an mvrl file named another_video_3dph.mvrl containing:
 
-    http://<computer_name>/VR/another_video_3dph.mp4
+    http://<your_computer_name>/VR/another_video_3dph.mp4
     another_video_3dph
 
 Note that the video type line of the generated file will contain more than just the video type string "_3dph", but MilkVR currently still finds the video type information in this case. 
