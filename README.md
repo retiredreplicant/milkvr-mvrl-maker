@@ -48,5 +48,5 @@ Both the mvrl-maker.ahk and mvrl-maker.exe versions of the tool have several opt
 
    `--mvrlFolder=C:\Users\userA\MyMvrlFiles`
    
- -  --keepExisting is an option to prevent the tool from deleting existing mvrl files before generating new ones. If this option is used, the tool will not delete or overwrite any existing mvrl files located in the mvrl folder. For example, you can use this option if you are running the tool in order to add new mvrl files to an existing mvrl folder. 
+ -  --keepExisting is an option to prevent the tool from deleting existing mvrl files before generating new ones. By default, the tool deletes all existing mvrl files from the mvrl folder, and generates new mvrl files for each video found. If this option is used, the tool will not delete or overwrite any existing mvrl files located in the mvrl folder. For example, you can use this option if you are running the tool in order to add new mvrl files to an existing mvrl folder. 
 
