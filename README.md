@@ -38,12 +38,15 @@ Note that the video type line of the generated file will contain more than just 
 Both the mvrl-maker.ahk and mvrl-maker.exe versions of the tool have several options built into them. Note that AutoHotKey (https://autohotkey.com/) must be installed on your machine to execute the mvrl-maker.ahk version of the tool. You have to run either version using the command line if you want to use any of the options below.
  -  `--urlBase` will override the main URL being assigned to the file links.  The default if not specified is `http://<your_computer_name>/VR/` where `<your_computer_name>` is the name of your PC. For eample, if for some reason your mobile device cannot locate your machine via `http://<your_computer_name>`, you can use this option to use the ip address of your machine instead with:
 
-    --urlBase=http://<ip_address>/VR/
+    `--urlBase=http://<ip_address>/VR/`
 
-Note the slash (/) at the end of the provided url. 
- -  --videoFolder is the folder to scan for videos. The default is the folder that the tool is being run from. Example usage is 
-  --videoFolder=C:\Users\userA\MyVRVideos
- -  --mvrlFolder is the folder to place the generated mvrl files for the videos.  The default is a folder named "mvrl" created in the folder that the tool is being run from. For example, to override the default name and location of the mvrl folder you can use 
-  --mvrlFolder=C:\Users\userA\MyMvrlFiles
- -  --keepExisting is an option to prevent the tool from deleting existing mvrl files before generating new ones. If this option is used, the tool will not delete or overwrite any existing mvrl files located in the mvrl folder. Use this option if you are running the tool in order to add new mvrl files to an existing mvrl folder. 
+ -  --videoFolder is the folder to scan for videos. The default is the folder that the tool is being run from. Example usage is:
+ 
+   `--videoFolder=C:\Users\userA\MyVRVideos`
+
+ -  --mvrlFolder is the folder to place the generated mvrl files for the videos.  The default is a folder named "mvrl" created in the folder that the tool is being run from. For example, to override the default name and location of the mvrl folder you can use:
+
+   `--mvrlFolder=C:\Users\userA\MyMvrlFiles`
+   
+ -  --keepExisting is an option to prevent the tool from deleting existing mvrl files before generating new ones. If this option is used, the tool will not delete or overwrite any existing mvrl files located in the mvrl folder. For example, you can use this option if you are running the tool in order to add new mvrl files to an existing mvrl folder. 
 
