@@ -39,7 +39,7 @@ Both the mvrl-maker.ahk and mvrl-maker.exe versions of the tool have several opt
  -  `--urlBase` will override the main URL being assigned to the file links.  The default if not specified is `http://<your_computer_name>/VR/` where `<your_computer_name>` is the name of your PC. For eample, if for some reason your mobile device cannot locate your machine via `http://<your_computer_name>`, you can use this option to use the ip address of your machine instead with:
 
     --urlBase=http://<ip_address>/VR/
-    
+
 Note the slash (/) at the end of the provided url. 
  -  --videoFolder is the folder to scan for videos. The default is the folder that the tool is being run from. Example usage is 
   --videoFolder=C:\Users\userA\MyVRVideos
