@@ -41,15 +41,15 @@ The mvrl-maker.exe tool has several options built into it. You have to run the t
 
     `--urlBase=http://<ip_address>/VR/`
 
- -  --videoFolder is the folder to scan for videos. The default is the folder that the tool is being run from. Example usage is:
+ -  `--videoFolder` identifies the folder to scan for videos. The default is the folder that the tool is being run from. Example usage is:
  
    `--videoFolder=C:\Users\userA\MyVRVideos`
 
- -  --mvrlFolder is the folder the tool should place the generated mvrl files.  The default mvrl file destination is a folder named "mvrl" created in the folder that the tool is being run from. For example, to override the default name and location of the mvrl folder you can use:
+ -  `--mvrlFolder` identifies the folder the tool should place the generated mvrl files.  The default mvrl file destination is a folder named "mvrl" created in the folder that the tool is being run from. For example, to override the default name and location of the mvrl folder you can use:
 
    `--mvrlFolder=C:\Users\userA\MyMvrlFiles`
    
- -  --keepExisting is an option to prevent the tool from deleting existing mvrl files before generating new ones. By default, the tool deletes all existing mvrl files from the targeted mvrl folder, and generates new mvrl files for each video found. If this option is used, the tool will not delete or overwrite any existing mvrl files located in the mvrl folder. For example, you can use this option if you are running the tool in order to add new mvrl files to an existing mvrl folder. 
+ -  `--keepExisting` is an option to prevent the tool from deleting existing mvrl files before generating new ones. By default, the tool deletes all existing mvrl files from the targeted mvrl folder, and generates new mvrl files for each video found. If this option is used, the tool will not delete or overwrite any existing mvrl files located in the mvrl folder. For example, you can use this option if you are running the tool in order to add new mvrl files to an existing mvrl folder. 
 
 ##What is mvrl-maker.ahk?
 The mvrl-maker.exe tool was generated from the AutoHotKey script mvrl-maker.ahk using AutoHotkey (https://autohotkey.com/). AutoHotKey must be installed on your PC to execute mvrl-maker.ahk directly. The AutoHotKey version of the tool accepts the same parameters as the exectuable version. The AutoHotKey script is provided to allow users to modify the tool behavior if desired and generate a new executable.  
