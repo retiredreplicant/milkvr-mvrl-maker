@@ -1,5 +1,5 @@
 # milkvr-mvrl-maker
-Windows executable to generate MilkVR ".mvrl" files for a collection of videos on your local PC, allowing easy access to those videos from within the MilkVR application.
+A Windows executable to generate MilkVR ".mvrl" files for a collection of videos on your local PC, allowing easy access to those videos from within the MilkVR application.
 
 This tool was inspired by, and copies heavily from, the tool located at https://github.com/abnormalend/milkvr-url-maker
 
