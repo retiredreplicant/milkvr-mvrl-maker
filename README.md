@@ -37,7 +37,7 @@ Note that the video type line of the generated file will contain more than just 
 ##Runtime Arguments
 The mvrl-maker.exe tool (and mvrl-make.ahk) has several options built into it. You have to run the tool using the command line if you want to use any of the options below.
 
- -  `--urlBase` will override the main URL being assigned to the file links.  The default if not specified is `http://<your_computer_name>/VR/` where `<your_computer_name>` is the name of your PC. For eample, if for some reason your mobile device cannot locate your machine via `http://<your_computer_name>`, you can use this option to use the ip address of your machine instead with:
+ -  `--urlBase` will override the main URL being assigned to the file links put into the mvrl files.  The default if not specified is `http://<your_computer_name>/VR/` where `<your_computer_name>` is the name of your PC. For eample, if for some reason your mobile device cannot locate your machine via `http://<your_computer_name>`, you can use this option to use the ip address of your machine instead with:
 
     `--urlBase=http://<ip_address>/VR/`
 
@@ -45,11 +45,11 @@ The mvrl-maker.exe tool (and mvrl-make.ahk) has several options built into it. Y
  
    `--videoFolder=C:\Users\userA\MyVRVideos`
 
- -  --mvrlFolder is the folder to place the generated mvrl files for the videos.  The default is a folder named "mvrl" created in the folder that the tool is being run from. For example, to override the default name and location of the mvrl folder you can use:
+ -  --mvrlFolder is the folder the tool should place the generated mvrl files.  The default mvrl file destination is a folder named "mvrl" created in the folder that the tool is being run from. For example, to override the default name and location of the mvrl folder you can use:
 
    `--mvrlFolder=C:\Users\userA\MyMvrlFiles`
    
- -  --keepExisting is an option to prevent the tool from deleting existing mvrl files before generating new ones. By default, the tool deletes all existing mvrl files from the mvrl folder, and generates new mvrl files for each video found. If this option is used, the tool will not delete or overwrite any existing mvrl files located in the mvrl folder. For example, you can use this option if you are running the tool in order to add new mvrl files to an existing mvrl folder. 
+ -  --keepExisting is an option to prevent the tool from deleting existing mvrl files before generating new ones. By default, the tool deletes all existing mvrl files from the targeted mvrl folder, and generates new mvrl files for each video found. If this option is used, the tool will not delete or overwrite any existing mvrl files located in the mvrl folder. For example, you can use this option if you are running the tool in order to add new mvrl files to an existing mvrl folder. 
 
 ##What is mvrl-maker.ahk?
-The mvrl-maker.exe tool was generated from the AutoHotKey script mvrl-maker.ahk using AutoHotkey (https://autohotkey.com/). AutoHotKey must be installed to execute mvrl-maker.ahk directly. The AutoHotKey script is provided to allow users to modify the tool behavior if desired and generate to new executable.  
+The mvrl-maker.exe tool was generated from the AutoHotKey script mvrl-maker.ahk using AutoHotkey (https://autohotkey.com/). AutoHotKey must be installed to execute mvrl-maker.ahk directly. The AutoHotKey script is provided to allow users to modify the tool behavior if desired and generate a new executable.  
