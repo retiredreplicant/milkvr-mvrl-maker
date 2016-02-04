@@ -32,7 +32,7 @@ The `<video_name>.<video_type>.mp4` format is optimal but not required. If you h
     http://<your_computer_name>/VR/another_video_3dph.mp4
     another_video_3dph
 
-Note that the video type line of the generated file will contain more than just the required video type string `_3dph`, but MilkVR currently still finds the video type information in this case and plays the video correctly. 
+Note that the video type line of the generated file will contain more than just the required video type string `_3dph`, but MilkVR still finds the video type information in this case and plays the video correctly.
 
 ##Runtime Arguments
 Both the mvrl-maker.ahk and mvrl-maker.exe versions of the tool have several options built into them. Note that AutoHotKey (https://autohotkey.com/) must be installed on your machine to execute the mvrl-maker.ahk version of the tool. You have to run either version using the command line if you want to use any of the options below.
