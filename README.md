@@ -37,7 +37,7 @@ Note that the video type line of the generated file will contain more than just 
 ##Runtime Arguments
 The mvrl-maker.exe tool has several options built into it. You have to run the tool using the command line if you want to use any of the options below.
 
- -  `--urlBase` will override the main URL being assigned to the file links put into the mvrl files.  The default if not specified is `http://<your_computer_name>/VR/` where `<your_computer_name>` is the name of your PC. For eample, if for some reason your mobile device cannot locate your machine via `http://<your_computer_name>`, you can use this option to use the ip address of your machine instead with:
+ -  `--urlBase` will override the main URL being assigned to the file links put into the mvrl files.  The default if not specified is `http://<your_computer_name>/VR/` where `<your_computer_name>` is the name of your PC. For eample, if for some reason your mobile device cannot locate your machine via `http://<your_computer_name>`, you can use this option to identify your machine using its ip address instead with:
 
     `--urlBase=http://<ip_address>/VR/`
 
