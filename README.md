@@ -1,7 +1,7 @@
 # milkvr-mvrl-maker
 Windows executable to generate MilkVR ".mvrl" files for a collection of videos on your local PC, allowing easy access to those videos from within the MilkVR application.
 
-NOTE: This tool was inspired by, and copies heavily from, the tool located at  https://github.com/abnormalend/milkvr-url-maker
+This tool was inspired by, and copies heavily from, the tool located at https://github.com/abnormalend/milkvr-url-maker
 
 ##The Basics
 If you already have a web server running and configured, just put the mvrl-maker.exe tool in the folder with your VR video files and execute it. The tool will create a folder named "mvrl" with a mvrl file for each video file found.  Copy the generated mvrl files to the MilkVR folder in the root directory of your mobile device, The videos will then be accessible in the "Sideloaded" category from within MilkVR. See https://milkvr.com/#/content/faq for directions on how to create a MilkVR folder on your device. 
