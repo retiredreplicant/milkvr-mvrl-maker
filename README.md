@@ -11,9 +11,9 @@ If you already have a web server running and configured, just put the mvrl-maker
  - Unzip somewhere on your system.
  - Enter the nginx folder, then the html folder.
  - For the default settings, create a folder within html called VR.
- - Copy some VR videos (named correctly) to this folder, and the mvrl-maker.exe tool.
+ - Copy some VR videos (named correctly) to this folder, along with mvrl-maker.exe tool.
  - Run mvrl-maker.exe.
- - Copy the generated mvrl files to the MilkVR folder on your mobile device. 
+ - Copy the generated mvrl files from the generated mvrl folder to the MilkVR folder on your mobile device. 
  - Go back to the main nginx folder and run nginx.exe.  If you have windows firewall turned on, you should get prompted about allowing it.
  - Test it out! Run MilkVR and stream your PC videos from the "Sideloaded" category.
 
