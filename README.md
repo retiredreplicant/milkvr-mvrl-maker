@@ -38,6 +38,8 @@ The `<video_name>.<video_type>.mp4` format is optimal but not required. If you h
 
 Note that the video type line of the generated file will contain more than just the required video type string `_3dph`, but, at present, MilkVR still finds the video type information in this case and plays the video correctly. 
 
+Avoid using spaces in filenames, at least when using nginx.
+
 ##Runtime Arguments
 The mvrl-maker.exe tool has several options built into it. You have to run the tool using the command line if you want to use any of the options below.
 
