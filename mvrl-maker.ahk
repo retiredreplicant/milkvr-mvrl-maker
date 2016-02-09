@@ -57,8 +57,9 @@ if (keepExisting = "false"){
 ; Create a video file search string
 searchString := videoFolder . "\*.mp4"
 
+; Find all mp4 files recursively
 OutputDebug %searchString%`r`n
-Loop, %searchString%
+Loop, Files, %searchString%, R
 {
 	; Parse the video file name for key components
 	file_minus_ext := RegExReplace(A_LoopFileName, "(.*).mp4$", "$1")
@@ -68,10 +69,14 @@ Loop, %searchString%
 	; Create mvrl file name
 	filename := file_minus_ext . ".mvrl"
 
+	; Create http based file path
+	filePath := StrReplace(A_LoopFileFullPath, videoFolder . "\", urlBase)
+	filePath := StrReplace(filePath, "\", "/")
+
 	; Create the mvrl file, respecting the keepExisting setting
 	if ((keepExisting = "false") || ((keepExisting = "true") && (!FileExist(filename)))) {
 		file := FileOpen(filename, "w")
-		file.Write(urlBase . A_LoopFileName . "`r`n")
+		file.Write(filePath . "`r`n")
 		file.Write(video_type)
 		file.Close()
 	}
