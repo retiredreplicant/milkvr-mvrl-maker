@@ -6,6 +6,8 @@ This tool was inspired by, and copies heavily from, the tool located at https://
 ##The Basics
 If you already have a web server running and configured, just put the mvrl-maker.exe tool in the folder with your VR video files and execute it. The tool will create a folder named "mvrl" with a mvrl file for each video file found.  Copy the generated mvrl files to the MilkVR folder in the root directory of your mobile device. The videos will then be accessible in the "Sideloaded" category from within MilkVR. See https://milkvr.com/#/content/faq for directions on how to create a MilkVR folder on your device. 
 
+The tool will recursively search subfolders for video files and generate the proper mvrl files for those as well. However, the generated mvrl folder will be a flat structure, as the MilkVR folder on a device does not support subfolders. *Web Servers do not like spaces in folder names.*
+
 ###Don't Already Have a Web Server?  (assumes you're on windows)
  - Download nginx. (http://nginx.org/en/download.html)
  - Unzip somewhere on your system.
@@ -35,6 +37,8 @@ The `<video_name>.<video_type>.mp4` format is optimal but not required. If you h
     another_video_3dph
 
 Note that the video type line of the generated file will contain more than just the required video type string `_3dph`, but, at present, MilkVR still finds the video type information in this case and plays the video correctly. 
+
+*Avoid using spaces in filenames, at least when using nginx.*
 
 ##Runtime Arguments
 The mvrl-maker.exe tool has several options built into it. You have to run the tool using the command line if you want to use any of the options below.
