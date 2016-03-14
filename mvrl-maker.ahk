@@ -17,6 +17,14 @@ urlBase := "http://" . A_ComputerName . "/VR/"
 mvrlFolder := "mvrl"
 keepExisting := "false"
 
+; Set supported file types
+fileTypes := Object()
+fileTypes.insert("mp4")
+fileTypes.insert("webm")
+fileTypes.insert("3gp")
+fileTypes.insert("mkv")
+fileTypes.insert("m4v")
+
 ; Look for and parse input parameters
 Loop, %0%  ; For each parameter:
 {
@@ -54,30 +62,38 @@ if (keepExisting = "false"){
 	FileDelete, *.mvrl
 }
 
-; Create a video file search string
-searchString := videoFolder . "\*.mp4"
+; For each file extension supported
+Loop % fileTypes.MaxIndex() {
 
-; Find all mp4 files recursively
-OutputDebug %searchString%`r`n
-Loop, Files, %searchString%, R
-{
-	; Parse the video file name for key components
-	file_minus_ext := RegExReplace(A_LoopFileName, "(.*).mp4$", "$1")
-	video_type := RegExReplace(file_minus_ext, ".*\.(.*)", "$1")
-	name := RegExReplace(file_minus_ext, "(.*)\..*", "$1")	
+	; Get the extension text for the current filetype
+	fileType := fileTypes[A_Index]
 
-	; Create mvrl file name
-	filename := file_minus_ext . ".mvrl"
+	; Create a video file search string
+	searchString := videoFolder . "\*." . fileType
 
-	; Create http based file path
-	filePath := StrReplace(A_LoopFileFullPath, videoFolder . "\", urlBase)
-	filePath := StrReplace(filePath, "\", "/")
+	; Find all files recursively
+	OutputDebug %searchString%`r`n
+	Loop, Files, %searchString%, R
+	{
+		; Parse the video file name for key components
+		expression := "(.*)." . fileType . "$"
+		file_minus_ext := RegExReplace(A_LoopFileName, expression, "$1")
+		video_type := RegExReplace(file_minus_ext, ".*\.(.*)", "$1")
+		name := RegExReplace(file_minus_ext, "(.*)\..*", "$1")	
 
-	; Create the mvrl file, respecting the keepExisting setting
-	if ((keepExisting = "false") || ((keepExisting = "true") && (!FileExist(filename)))) {
-		file := FileOpen(filename, "w")
-		file.Write(filePath . "`r`n")
-		file.Write(video_type)
-		file.Close()
+		; Create mvrl file name
+		filename := file_minus_ext . ".mvrl"
+
+		; Create http based file path
+		filePath := StrReplace(A_LoopFileFullPath, videoFolder . "\", urlBase)
+		filePath := StrReplace(filePath, "\", "/")
+
+		; Create the mvrl file, respecting the keepExisting setting
+		if ((keepExisting = "false") || ((keepExisting = "true") && (!FileExist(filename)))) {
+			file := FileOpen(filename, "w")
+			file.Write(filePath . "`r`n")
+			file.Write(video_type)
+			file.Close()
+		}
 	}
 }
