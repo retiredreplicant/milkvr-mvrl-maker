@@ -76,6 +76,8 @@ Let's say you wanted to move all your VR videos to an external drive mapped to `
 - Add a new "location" entry to the "server" section of the nginx.conf that maps the location of the old VR folder to the new VR folder on the g: drive. 
 
 ```
+http  {
+    ...
     server {
         listen       80;
         server_name  localhost;
@@ -104,6 +106,8 @@ Let's say you wanted to move all your VR videos to an external drive mapped to `
             root   html;
         }
         ...
+    }
+}
 ```        
 - Restart the nginx server
 - With the above configuration change, nginx will respond to a request for `http://<machine_name>/VR/file.mp4` with the file `g:\VR\file.mp4`
