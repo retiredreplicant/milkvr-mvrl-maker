@@ -72,7 +72,8 @@ Let's say you wanted to move all your VR videos to an external drive mapped to `
   
   `g:\VR>mvrl-maker.exe --urlBase=http://<machine_ip_address>/VR/`  
   
-- Open the nginx.conf file located at `\nginx-x.x.x\conf\nginx.conf`
+- **Copy the generated mvrl files from the generated mvrl folder to the MilkVR folder on your mobile device.** 
+- - Open the nginx.conf file located at `\nginx-x.x.x\conf\nginx.conf`
 - Add a new "location" entry to the "server" section of the nginx.conf that maps the location of the old VR folder to the new VR folder on the g: drive. 
 
 ```
