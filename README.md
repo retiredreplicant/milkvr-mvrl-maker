@@ -73,7 +73,7 @@ Let's say you wanted to move all your VR videos to an external drive mapped to `
   `g:\VR>mvrl-maker.exe --urlBase=http://<machine_ip_address>/VR/`  
   
 - **Copy the generated mvrl files from the generated mvrl folder to the MilkVR folder on your mobile device.** 
-- - Open the nginx.conf file located at `\nginx-x.x.x\conf\nginx.conf`
+- Open the nginx.conf file located at `\nginx-x.x.x\conf\nginx.conf`
 - Add a new "location" entry to the "server" section of the nginx.conf that maps the location of the old VR folder to the new VR folder on the g: drive. 
 
 ```
@@ -92,11 +92,11 @@ http  {
             index  index.html index.htm;
         }
         
-        ### ADDED LINES BELOW ###
+        ###### ADDED LINES BELOW ######
         location /VR/ {
             root g:/VR;
         }
-        ### END ADDED LINES ###
+        ####### END ADDED LINES #######
 
         #error_page  404              /404.html;
 
@@ -113,6 +113,7 @@ http  {
 - Restart the nginx server
 - With the above configuration change, nginx will respond to a request for `http://<machine_name>/VR/file.mp4` with the file `g:\VR\file.mp4`
 - Note that the nginx.conf file uses only forward slashes "/"
+- See nginx documentation for the details about the configuration file syntax 
 
 
 ##What is mvrl-maker.ahk?
