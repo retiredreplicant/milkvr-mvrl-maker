@@ -74,7 +74,7 @@ Let's say you wanted to move all your VR videos to an external drive mapped to `
   
 - **Copy the generated mvrl files from the generated mvrl folder to the MilkVR folder on your mobile device.** 
 - Open the nginx.conf file located at `\nginx-x.x.x\conf\nginx.conf`
-- Add a new "location" entry to the "server" section of the nginx.conf that maps the location of the old VR folder to the new VR folder on the g: drive. 
+- Add a new "location" entry to the "server" section of the nginx.conf that maps the location of the old VR folder to the new VR folder on the g: drive.
 
 ```
 http  {
@@ -94,7 +94,7 @@ http  {
         
         ###### ADDED LINES BELOW ######
         location /VR/ {
-            root g:/VR;
+            root g:;
         }
         ####### END ADDED LINES #######
 
@@ -110,6 +110,8 @@ http  {
     }
 }
 ```        
+Note that in this example, the location of the VR folder is in the root of `g:` . If the VR folder was located at `g:\MyVideos\VR\`, then the location statement added to nginx.conf would contain `root g:/MyVideos;` 
+
 - Restart the nginx server
 - With the above configuration change, nginx will respond to a request for `http://<machine_name>/VR/file.mp4` with the file `g:\VR\file.mp4`
 - Note that the nginx.conf file uses only forward slashes "/"
