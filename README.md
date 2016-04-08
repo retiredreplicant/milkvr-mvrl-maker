@@ -23,7 +23,9 @@ The tool will recursively search subfolders for video files and generate the pro
 
 ##Thumbnails 
 
-If you would like to see thumbnails for your vides within MilkVR instead a black square, create a folder named "thumbnails" in the same folder as your videos. Use a thumbnail generator tool (I use Thumbnail me 3.0) to create thumbnails for your videos with a .jpeg extension. For example, if your video is named `my_video.mp4` put an image named `my_video.jpeg` in the thumbmails directory, and that image will be associated with the video within MilkVR.
+If you would like to see thumbnails for your vides in MilkVR, instead of a black square, create a folder named `thumbnails` in the same folder as your videos. Use a thumbnail generator tool to create thumbnails for your videos with a `.jpeg` extension. For example, if your video is named `my_video.mp4` put an image named `my_video.jpeg` in the `thumbnails` directory, and that image will be automatically associated with that video within MilkVR.
+
+I use a tool called Thumbnail me 3.0 (http://www.thumbnailme.com/) to create my thumbnails rather easily. "Load" all your videos as the input, specify the `thumbnails` directory as the output destination, and then select "Start". I recommend setting the "Rows" and "Columns" values under "Configuration" to 1 for the best looking thumbnails. 
 
 ##File Names
 The video files do need to be named in the same way that MilkVR would expect them if you were copying to your phone's storage. Any required Video Type code or Audio Type code needs to be embedded in the video file name. See https://milkvr.com/portal/content/faq for all the available Video and Audio Type codes. 
