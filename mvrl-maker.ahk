@@ -34,11 +34,6 @@ Loop, %0%  ; For each parameter:
 		StringSplit, paramArray, param, "="
 		urlBase := paramArray2
 	}
-	if InStr(param, "--videoFolder")
-	{
-		StringSplit, paramArray, param, "="
-		videoFolder := paramArray2
-	}	
 	if InStr(param, "--mvrlFolder")
 	{
 		StringSplit, paramArray, param, "="
@@ -78,8 +73,6 @@ Loop % fileTypes.MaxIndex() {
 		; Parse the video file name for key components
 		expression := "(.*)." . fileType . "$"
 		file_minus_ext := RegExReplace(A_LoopFileName, expression, "$1")
-		video_type := RegExReplace(file_minus_ext, ".*\.(.*)", "$1")
-		name := RegExReplace(file_minus_ext, "(.*)\..*", "$1")	
 
 		; Create mvrl file name
 		filename := file_minus_ext . ".mvrl"
@@ -88,11 +81,16 @@ Loop % fileTypes.MaxIndex() {
 		filePath := StrReplace(A_LoopFileFullPath, videoFolder . "\", urlBase)
 		filePath := StrReplace(filePath, "\", "/")
 
+		; Create thumbnail path
+		thumbnailFile := urlBase . "thumbnails/" . file_minus_ext . ".jpeg"
+
 		; Create the mvrl file, respecting the keepExisting setting
 		if ((keepExisting = "false") || ((keepExisting = "true") && (!FileExist(filename)))) {
 			file := FileOpen(filename, "w")
 			file.Write(filePath . "`r`n")
-			file.Write(video_type)
+			file.Write(file_minus_ext . "`r`n")
+			file.Write(file_minus_ext . "`r`n")
+			file.Write(thumbnailFile)
 			file.Close()
 		}
 	}
