@@ -37,7 +37,7 @@ For example, if you have a video named `my_video_binaural_3dh.mp4`, the tool wil
     my_video_binaural_3dh
     http://<your_computer_name>/VR/thumbnails/my_video_binaural_3dh.jpeg
 
-In a mvrl file, the first line is the path to the file to be played, the second line identifies the video type, the third line identifies the audio type, and the fouth line identifies a thumbnail image. 
+In a mvrl file, the first line is the path to the file to be played, the second line identifies the Video Type, the third line identifies the Audio Type, and the fouth line identifies a thumbnail image. 
     
 I have verified the MilkVR searches the entire second line for a video type code, and searches the entire third line for an audio type code. For the above example, MilkVR will play the video using video type code `3dh` and audio type code `_binaural`. If your video does not require an audio type code, it will be ok that MilkVR does not find one on the third line. It is also ok if the generated thumbnail path put on the fourth line does not exist. Your video will just not have a thumbnail associated with it. 
 
