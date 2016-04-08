@@ -57,5 +57,66 @@ The mvrl-maker.exe tool has several options built into it. You have to run the t
    
  -  `--keepExisting` is an option to prevent the tool from deleting existing mvrl files before generating new ones. By default, the tool deletes all existing mvrl files from the targeted mvrl folder, and generates new mvrl files for each video found. If this option is used, the tool will not delete or overwrite any existing mvrl files located in the mvrl folder. For example, you can use this option if you are running the tool in order to add new mvrl files to an existing mvrl folder. 
 
+##Accessing Files on External Drives
+If you follow the standard instructions above, and are using nginx as your web server, you may have all your videos in the folder `\nginx-x.x.x\html\VR`, and the urls for accessing those videos would would start with `http://<machine_name>/VR/` or `http://<machine_ip_address>/VR/` 
+
+Let's say you wanted to move all your VR videos to an external drive mapped to `g:`, The directions below are one way to do this.
+
+- Move the "VR" folder from `\nginx-x.x.x\html` to the root of the `g:` so that the path to the videos is `g:\VR`
+- Copy mvrl-maker.exe to `g:\VR`
+- Run mvrl-maker and use the --urlBase option such that the generated urls still point the the old VR folder
+
+  `g:\VR>mvrl-maker.exe --urlBase=http://<machine_name>/VR/`  
+  
+  or 
+  
+  `g:\VR>mvrl-maker.exe --urlBase=http://<machine_ip_address>/VR/`  
+  
+- **Copy the generated mvrl files from the generated mvrl folder to the MilkVR folder on your mobile device.** 
+- Open the nginx.conf file located at `\nginx-x.x.x\conf\nginx.conf`
+- Add a new "location" entry to the "server" section of the nginx.conf that indicates where nginx should look for the VR folder. in this example, the VR folder is located on the g: drive.
+
+```
+http  {
+    ...
+    server {
+        listen       80;
+        server_name  localhost;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+        
+        ###### ADDED LINES BELOW ######
+        location /VR/ {
+            root g:;
+        }
+        ####### END ADDED LINES #######
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+        ...
+    }
+}
+```        
+Note that in this example, the location of the VR folder is in the root of `g:` . If the VR folder was located at `g:\MyVideos\VR\`, then the location statement added to nginx.conf would contain `root g:/MyVideos;` 
+
+- Restart the nginx server
+- With the above configuration change, nginx will respond to a request for `http://<machine_name>/VR/file.mp4` with the file `g:\VR\file.mp4`
+- Note that the nginx.conf file uses only forward slashes "/"
+- See nginx documentation for the details about the configuration file syntax 
+
+
 ##What is mvrl-maker.ahk?
-The mvrl-maker.exe tool was generated from mvrl-maker.ahk using AutoHotkey (https://autohotkey.com/). AutoHotKey must be installed on your PC to execute mvrl-maker.ahk directly. The AutoHotKey version of the tool accepts the same parameters as the exectuable version. The AutoHotKey script is provided to allow users to modify the tool behavior if desired and generate a new executable.  
+The mvrl-maker.exe tool was generated from mvrl-maker.ahk using AutoHotkey (https://autohotkey.com/). AutoHotKey must be installed on your PC to execute mvrl-maker.ahk directly. The AutoHotKey version of the tool accepts the same parameters as the exectuable version. The AutoHotKey script is provided to allow users to modify the tool behavior if desired and generate a new executable. Installing AutoHotKey and extracting mvrl-make.ahk is not required otherwise. 
