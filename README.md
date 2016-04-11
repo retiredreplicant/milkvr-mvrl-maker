@@ -23,6 +23,8 @@ The tool will recursively search subfolders for video files and generate the pro
 
 ##Thumbnails 
 
+**NOTE! THE THUMBNAIL FEATURE HAS BEEN DISABLED DUE TO A ISSUE THAT I AM TRYING TO RESOLVE VIA MILKVR SUPPORT. THIS FEATURE WILL BE RE-ENABLED ONCE IT IS VERIFIED THAT IT WORKS IN ALL SITUATIONS. APOLOGIES.**
+
 If you would like to see thumbnails for your vides in MilkVR, instead of a black square, create a folder named `thumbnails` in the same folder as your videos. Use a thumbnail generator tool to create thumbnails for your videos with a `.jpeg` extension. For example, if your video is named `my_video.mp4` put an image named `my_video.jpeg` in the `thumbnails` directory, and that image will be automatically associated with that video within MilkVR.
 
 I use a tool called Thumbnail me 3.0 (http://www.thumbnailme.com/) to create my thumbnails rather easily. "Load" all your videos as the input, specify the `thumbnails` directory as the output destination, and then select "Start". I recommend setting the "Rows" and "Columns" values under "Configuration" to 1 for the best looking thumbnails. 
