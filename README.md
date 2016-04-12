@@ -46,17 +46,19 @@ I have verified the MilkVR searches the entire second line for a video type code
 *Avoid using spaces in filenames, at least when using nginx.*
 
 ##Runtime Arguments
-The mvrl-maker.exe tool has several options built into it. You have to run the tool using the command line if you want to use any of the options below.
+The mvrl-maker.exe tool has several options built into it. You have to run the tool using the command line if you want to use any of the options below. Multiple options can be used at the same time. 
 
  -  `--urlBase` will override the main URL being assigned to the file links put into the mvrl files.  The default if not specified is `http://<your_computer_name>/VR/` where `<your_computer_name>` is the name of your PC. For eample, if for some reason your mobile device cannot locate your machine via `http://<your_computer_name>`, you can use this option to identify your machine using its ip address instead with:
 
-    `--urlBase=http://<ip_address>/VR/`
+    `>mvrl-maker.exe --urlBase=http://<ip_address>/VR/`
 
  -  `--mvrlFolder` identifies the folder the tool should place the generated mvrl files.  The default mvrl file destination is a folder named "mvrl" created in the folder that the tool is being run from. For example, to override the default name and location of the mvrl folder you can use:
 
-   `--mvrlFolder=C:\Users\userA\MyMvrlFiles`
+   `>mvrl-maker.exe --mvrlFolder=C:\Users\userA\MyMvrlFiles`
    
- -  `--keepExisting` is an option to prevent the tool from deleting existing mvrl files before generating new ones. By default, the tool deletes all existing mvrl files from the targeted mvrl folder, and generates new mvrl files for each video found. If this option is used, the tool will not delete or overwrite any existing mvrl files located in the mvrl folder. For example, you can use this option if you are running the tool in order to add new mvrl files to an existing mvrl folder. 
+ -  `--keepExisting` is an option to prevent the tool from deleting existing mvrl files before generating new ones. By default, the tool deletes all existing mvrl files from the targeted mvrl folder, and generates new mvrl files for each video found. If this option is used, the tool will not delete or overwrite any existing mvrl files located in the mvrl folder. For example, you can use this option if you are running the tool in order to add new mvrl files to an existing mvrl folder. For example:
+ 
+   `>mvrl-maker.exe --keepExisting`
 
 ##Accessing Files on External Drives
 If you follow the standard instructions above, and are using nginx as your web server, you may have all your videos in the folder `\nginx-x.x.x\html\VR`, and the urls for accessing those videos would would start with `http://<machine_name>/VR/` or `http://<machine_ip_address>/VR/` 
@@ -118,6 +120,22 @@ Note that in this example, the location of the VR folder is in the root of `g:` 
 - Note that the nginx.conf file uses only forward slashes "/"
 - See nginx documentation for the details about the configuration file syntax 
 
-
 ##What is mvrl-maker.ahk?
 The mvrl-maker.exe tool was generated from mvrl-maker.ahk using AutoHotkey (https://autohotkey.com/). AutoHotKey must be installed on your PC to execute mvrl-maker.ahk directly. The AutoHotKey version of the tool accepts the same parameters as the exectuable version. The AutoHotKey script is provided to allow users to modify the tool behavior if desired and generate a new executable. Installing AutoHotKey and extracting mvrl-make.ahk is not required otherwise. 
+
+##Trouble Shooting
+If you are using a nginx server, you can start the server by double-clicking `nginx.exe` in the `nginx-1.x.x` folder. A small window should appear and dissapear quickly. You may get asked if you want the program to run. Use the Task Manager to verify that nginx.exe is listed in the running processes. It seems to always be listed twice for me. 
+
+If the nginx server, or the server of your choosing, is running, open up one of the generated mvrl files using Notepad or Wordpad. Copy the URL to the video from the first line of the mvrl file. Past this URL into a tab in your browser and press enter. If you are using nginx and you followed the directions above, the video will start to play in a 2D mode (tested with Chrome.) If you are using another server, you may need to use the `--urlBase` option to identify the proper path to your videos for that server. 
+
+If the URL above works in a browser on your computer, the next step would be to try that same URL on your mobile device. **Make sure your mobile device and your computer are connected to the same WiFi network.** One trick to get the URL on your device is to email it to yourself. Open the email and simply click on the link you pasted into the email. Your default browser should open and the video should again play. 
+
+If the video does not play, it could be possible that your computer is not accessible via its name. Your computer's name is used by mvrl-maker by default to construct the URL to a video. If you are familiar with using a command line, use `ipconfig` to get the wireless IP Address of your computer, and execute `mvrl-maker` from the command line using the `--urlBase` option to use the wireless IP Address instead of the computer name. The Runtime Arguments section above has an example. If you are not familiar with using a command line, continue reading. 
+
+Using the Windows Start icon, type in `cmd` in the search text box and hit enter to start the command line program. A black window with a blinking cursor will appear. This is a command line window. Note that to the left of the blinking cursor a "path" is shown. This is showing you what is called the Current Directory for the command line.  If you type in `dir` and hit enter, you will get a list of all the files and directories in the current directory. Directories are identified with `<DIR>` in the results.
+
+Now, the task is to move to the `VR` where your videos and the `mvrl-maker.exe` tool are located. You can type and enter `cd <dir>`, where `<dir>` is actually the name of a directory listed when you execute the `dir` command, to move "down" into that directory. You can type and enter `cd .` to move "up" to the parent directory of the current directory. Using the commands above, migrate to the folder where the nginx server was installed. Once there, enter `cd html` followed by `cd VR` to get to the directory containing your videos. 
+
+Now you can use the command line to execute `mvrl-maker.exe`. If you type `mvrl-maker.exe` and hit enter it will do exactly the same work as if you double-clinked the file from a regular window. The options list under Runtime Arguments above can be appended to the command line to modify the program's behavior. In this case we want to create URLs that use your computer's IP Address.
+
+Type and enter `ipconfig`. In the results the appear, find the IPv4 Address listed under the Wireless LAN Adapter section of the results. Now, enter the command `mvrl-maker.exe --urlBase=http://<ip_address>/VR/` where `<ip_address>` is replaced with the IP Address found using the `ipconfig` command. Open one of the generated mvrl files. The URL to the video file should now start with the wireless IP Address of your machine. Verify the URL works when pasted into a tab in a browser on your computer, and also when entered into a browser on your mobile device. Make sure both devices are on the same WiFi network.  
