@@ -90,7 +90,7 @@ Loop % fileTypes.MaxIndex() {
 			file.Write(filePath . "`r`n")
 			file.Write(file_minus_ext . "`r`n")
 			file.Write(file_minus_ext . "`r`n")
-			;file.Write(thumbnailFile)
+			file.Write(thumbnailFile)
 			file.Close()
 		}
 	}
