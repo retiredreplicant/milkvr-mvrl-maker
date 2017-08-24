@@ -4,6 +4,8 @@ A Windows executable to generate MilkVR ".mvrl" files for a collection of videos
 
 This tool was inspired by, and copies heavily from, the tool located at https://github.com/abnormalend/milkvr-url-maker
 
+**UPDATE:** Samsung VR for Gear VR has recently integrated DLNA media server support. This means that you can now directly access files located on your PC without using mvrl files. You just need to install a media server such as PLEX and enable DLNA support. There are instructions located at https://samsungvr.com/portal/content/media_server_support. Note that the instructions only mention access via the mobile application, but there is now a Media Servers option in the settings for the Gear VR application as well. 
+
 ## The Basics
 
 If you already have a web server running and configured, just put the mvrl-maker.exe tool in the folder with your VR video files and execute it. The tool will create a folder named "mvrl" with a mvrl file for each video file found.  Supported video file type extensions are .mp4, .m4v, .mkv, .3gp, and .webm. Copy the generated mvrl files to the MilkVR folder in the root directory of your mobile device. The videos will then be accessible in the "Sideloaded" category from within MilkVR. See https://milkvr.com/portal/content/faq for directions on how to create a MilkVR folder on your device.
